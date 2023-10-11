@@ -13,7 +13,6 @@ class MyPyQT_Form(QtWidgets.QWidget, Ui_Form):
         self.setupUi(self)
 
     def identifyButton_click(self):
-        print(self.urlEdit.text())
         code, img_stream = identify(self.urlEdit.text())
         self.textEdit.append(code)
         try:
@@ -30,7 +29,7 @@ def identify(url):
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'
         }
         s = requests.Session()
-        r = s.get(url, headers=header)
+        r = s.get(url, headers=header, verify=False)
         img = r.content
         img_stream = io.BytesIO(img)
         ocr = ddddocr.DdddOcr()
