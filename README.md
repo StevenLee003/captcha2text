@@ -31,3 +31,5 @@ image = image.resize((int(image.size[0] * (64 / image.size[1])), 64), Image.LANC
 
 方法二：降低pillow版本（不是很推荐）
 
+#### 2、命令行打开，在命令行中有广告
+不是我的广告，是ddddocr的，同样在在_init_.py文件中可以修改
